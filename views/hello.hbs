@@ -1,0 +1,76 @@
+<!-- Little HTML top title -->
+
+<section class="hero is-primary">
+    <div class="hero-body">
+    <div class="columns">
+        <div class="column is-12">
+        <div class="container content">
+            <h1 class="title">This is a magnifical NodeJS backbone !</h1>
+            <h3 class="subtitle">
+            By Flavien for the BR 16-17
+            </h3>
+
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+
+<!-- Dynamic form in VueJS  -->
+
+<section class="section" id="formulaire">
+    <div class="container">
+        <h1 class="title">Number printer</h1>
+            <h2 class="subtitle">
+                A simple example of a page printing numbers
+            </h2>
+
+
+        <form method="get" action="/printNumbers">
+
+            <div class="field">
+            <label class="label">Number of numbers to display</label>
+            <div class="control">
+                <input class="input" type="number" name="nbNumbers" v-model="nbNumbers" placeholder="100">
+            </div>
+                <p class="help">Will print this amount of numbers</p>
+            </div>
+
+            <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link">Submit</button>
+            </div>
+
+        </form>
+
+        <div>
+            <p v-for="i in nbNumbersInt">${i}</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <figure class='image is-64x64'><img src='https://avatars1.githubusercontent.com/u/1866706?s=280&v=4'></figure>
+    </div>
+</footer>
+
+
+<script>
+    new Vue({
+        el: '#formulaire',
+        data: {
+            nbNumbers: 3
+        },
+        delimiters: ['${', '}'],
+        computed: {
+            nbNumbersInt: function() {
+                return parseInt(this.nbNumbers)
+            }
+        }
+
+    })
+</script>
+
